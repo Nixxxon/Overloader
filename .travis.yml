@@ -1,0 +1,18 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+script: phpunit
+
+addons:
+    code_climate:
+        repo_token: 76c8705fd98014eb04dd06f83322d8e3614c88b859d87477c48d8245b59eeba7
+
+after_script:
+  - vendor/bin/test-reporter
